@@ -51,6 +51,61 @@ http_interactions:
       string: '{"id":"cmpl-6WBzGflagI6azKWQvdlTvfiJJId3d","object":"text_completion","created":1673130594,"model":"text-curie-001","choices":[{"text":",
         there was a society","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
-'
+        '
   recorded_at: Sat, 07 Jan 2023 22:29:54 GMT
+- request:
+    method: post
+    uri: "<OPENAI_URI_BASE>openai/deployments/text-curie-001/completions?api-version=2022-12-01"
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Api-Key:
+      - "<OPENAI_ACCESS_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '284'
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Model:
+      - text-curie-001
+      Apim-Request-Id:
+      - 48dc5350-21da-4d1c-a049-2afb998619f9
+      Openai-Processing-Ms:
+      - '257.4697'
+      X-Content-Type-Options:
+      - nosniff
+      X-Accel-Buffering:
+      - 'no'
+      X-Request-Id:
+      - 10ced831-fcd9-43ac-bb6f-96d13e59780a
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ms-Region:
+      - West Europe
+      Date:
+      - Tue, 11 Apr 2023 14:22:20 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"cmpl-749AycS0JgPMw3jgY50wpqk9m0TEk","object":"text_completion","created":1681222940,"model":"text-curie-001","choices":[{"text":"
+        there was a princess who","index":0,"finish_reason":"length","logprobs":null}],"usage":{"completion_tokens":5,"prompt_tokens":4,"total_tokens":9}}
+
+        '
+  recorded_at: Tue, 11 Apr 2023 14:22:21 GMT
 recorded_with: VCR 6.1.0

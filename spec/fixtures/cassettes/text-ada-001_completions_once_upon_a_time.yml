@@ -51,6 +51,61 @@ http_interactions:
       string: '{"id":"cmpl-6WBzFJGrKxDmLy0qrExB0TREcXVqN","object":"text_completion","created":1673130593,"model":"text-ada-001","choices":[{"text":",
         a really really big","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
-'
+        '
   recorded_at: Sat, 07 Jan 2023 22:29:53 GMT
+- request:
+    method: post
+    uri: "<OPENAI_URI_BASE>openai/deployments/text-ada-001/completions?api-version=2022-12-01"
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Api-Key:
+      - "<OPENAI_ACCESS_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '277'
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Model:
+      - text-ada-001
+      Apim-Request-Id:
+      - b107b474-ce94-46de-a7d5-b6173467c86e
+      Openai-Processing-Ms:
+      - '156.1851'
+      X-Content-Type-Options:
+      - nosniff
+      X-Accel-Buffering:
+      - 'no'
+      X-Request-Id:
+      - e0cd1f99-9721-410f-896f-d16cd23c1f7d
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ms-Region:
+      - West Europe
+      Date:
+      - Tue, 11 Apr 2023 14:22:20 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"cmpl-749AyBVBG1uWVai8hLW5B47fD7psD","object":"text_completion","created":1681222940,"model":"text-ada-001","choices":[{"text":",
+        there was a goblin","index":0,"finish_reason":"length","logprobs":null}],"usage":{"completion_tokens":5,"prompt_tokens":4,"total_tokens":9}}
+
+        '
+  recorded_at: Tue, 11 Apr 2023 14:22:20 GMT
 recorded_with: VCR 6.1.0

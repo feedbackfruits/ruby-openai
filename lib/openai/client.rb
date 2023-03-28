@@ -11,16 +11,18 @@ module OpenAI
       OpenAI::Client.json_post(path: "/chat/completions", parameters: parameters)
     end
 
-    def completions(parameters: {})
-      OpenAI::Client.json_post(path: "/completions", parameters: parameters)
+    def completions(deployment_id: nil, parameters: {})
+      OpenAI::Client.json_post(deployment_id: deployment_id, path: "/completions",
+                               parameters: parameters)
     end
 
     def edits(parameters: {})
       OpenAI::Client.json_post(path: "/edits", parameters: parameters)
     end
 
-    def embeddings(parameters: {})
-      OpenAI::Client.json_post(path: "/embeddings", parameters: parameters)
+    def embeddings(deployment_id: nil, parameters: {})
+      OpenAI::Client.json_post(deployment_id: deployment_id, path: "/embeddings",
+                               parameters: parameters)
     end
 
     def files
@@ -59,9 +61,9 @@ module OpenAI
       )
     end
 
-    def self.json_post(path:, parameters:)
+    def self.json_post(path:, parameters:, deployment_id: nil)
       HTTParty.post(
-        uri(path: path),
+        uri(deployment_id: deployment_id, path: path),
         headers: headers,
         body: parameters&.to_json,
         timeout: request_timeout
@@ -85,15 +87,30 @@ module OpenAI
       )
     end
 
-    private_class_method def self.uri(path:)
-      OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
+    private_class_method def self.uri(path:, deployment_id: nil)
+      if OpenAI.configuration.api_type == :azure
+        uri = "#{OpenAI.configuration.uri_base}openai"
+        uri += "/deployments/#{deployment_id}" if deployment_id
+        uri + path + "?api-version=#{OpenAI.configuration.api_version}"
+      else
+        OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
+      end
     end
 
     private_class_method def self.headers
+      return azure_headers if OpenAI.configuration.api_type == :azure
+
       {
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
         "OpenAI-Organization" => OpenAI.configuration.organization_id
+      }
+    end
+
+    private_class_method def self.azure_headers
+      {
+        "Content-Type" => "application/json",
+        "api-key" => OpenAI.configuration.access_token
       }
     end
 

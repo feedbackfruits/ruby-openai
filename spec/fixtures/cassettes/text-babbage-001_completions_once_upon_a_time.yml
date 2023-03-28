@@ -51,6 +51,61 @@ http_interactions:
       string: '{"id":"cmpl-6WBzGsfwPmNtAAMpWPjpWGBGnA0Yz","object":"text_completion","created":1673130594,"model":"text-babbage-001","choices":[{"text":"\n\nThere
         was a","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
-'
+        '
   recorded_at: Sat, 07 Jan 2023 22:29:54 GMT
+- request:
+    method: post
+    uri: "<OPENAI_URI_BASE>openai/deployments/text-babbage-001/completions?api-version=2022-12-01"
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Api-Key:
+      - "<OPENAI_ACCESS_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '287'
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Model:
+      - text-babbage-001
+      Apim-Request-Id:
+      - 0ec7b56b-e7a8-49b4-bab3-c11fd48fb80c
+      Openai-Processing-Ms:
+      - '205.0972'
+      X-Content-Type-Options:
+      - nosniff
+      X-Accel-Buffering:
+      - 'no'
+      X-Request-Id:
+      - 58f1e444-b53b-45b2-84ae-4255555df46b
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Ms-Region:
+      - West Europe
+      Date:
+      - Tue, 11 Apr 2023 14:22:20 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"cmpl-749AyTi0KmEM7AJlyZl1KHFRE6Pay","object":"text_completion","created":1681222940,"model":"text-babbage-001","choices":[{"text":"
+        there was a kingdom where","index":0,"finish_reason":"length","logprobs":null}],"usage":{"completion_tokens":5,"prompt_tokens":4,"total_tokens":9}}
+
+        '
+  recorded_at: Tue, 11 Apr 2023 14:22:20 GMT
 recorded_with: VCR 6.1.0

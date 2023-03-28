@@ -13,6 +13,7 @@ VCR.configure do |c|
                                  match_requests_on: [:method, :uri, VCRMultipartMatcher.new] }
   c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { OpenAI.configuration.access_token }
   c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { OpenAI.configuration.organization_id }
+  c.filter_sensitive_data("<OPENAI_URI_BASE>") { OpenAI.configuration.uri_base }
 end
 
 RSpec.configure do |c|
