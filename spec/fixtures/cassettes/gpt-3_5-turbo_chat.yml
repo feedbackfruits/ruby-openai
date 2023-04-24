@@ -53,4 +53,59 @@ http_interactions:
 
         '
   recorded_at: Wed, 01 Mar 2023 18:24:32 GMT
+- request:
+    method: post
+    uri: "<OPENAI_URI_BASE>openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-03-15-preview"
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"role":"user","content":"Hello!"}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Api-Key:
+      - "<OPENAI_ACCESS_TOKEN>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '320'
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Apim-Request-Id:
+      - ccae9e53-9848-4584-a2a1-d5aa9f42866a
+      Openai-Model:
+      - gpt-35-turbo
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Openai-Processing-Ms:
+      - '872.1621'
+      X-Ms-Region:
+      - East US
+      X-Accel-Buffering:
+      - 'no'
+      X-Request-Id:
+      - 4f5d80ba-be8e-412a-bd87-897cffece773
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Tue, 25 Apr 2023 13:04:46 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"chatcmpl-79CdaV6cRIZIgck8QC3posii5MAyJ","object":"chat.completion","created":1682427886,"model":"gpt-35-turbo","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
+        there. How may I assist you today?"},"finish_reason":"stop","index":0}]}
+
+        '
+  recorded_at: Tue, 25 Apr 2023 13:04:47 GMT
 recorded_with: VCR 6.1.0

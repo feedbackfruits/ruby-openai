@@ -7,8 +7,9 @@ module OpenAI
       OpenAI.configuration.request_timeout = request_timeout if request_timeout
     end
 
-    def chat(parameters: {})
-      OpenAI::Client.json_post(path: "/chat/completions", parameters: parameters)
+    def chat(deployment_id: nil, parameters: {})
+      OpenAI::Client.json_post(deployment_id: deployment_id, path: "/chat/completions",
+                               parameters: parameters)
     end
 
     def completions(deployment_id: nil, parameters: {})
